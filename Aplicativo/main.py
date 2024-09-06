@@ -7,9 +7,10 @@ def criar_tarefas(tarefa: str, status: str, /):
     return lista_tarefas
 
 def listar_tarefa(lista: list, /):
-    for items in lista:
-        texto += f'{items[0]} ({items[1]})\n'
+    for indice, items in enumerate(lista):
+        texto += f'{indice}: {items[0]} ({items[1]})\n'
     print(texto)
+    return texto
 
 def filtrar_urgentes(lista: list, /):
     tarefas_urgentes = [item[0] for item in lista if item[1] == 'urgente']
@@ -17,12 +18,24 @@ def filtrar_urgentes(lista: list, /):
         print(tasks)
 
 
+def marcar_concluida(txt: str, /):
+    print('Essas são suas tarefas pendentes atualmente: ')
+    txt = txt.split('\n')
+    for tasks in txt:
+        print(tasks)
+    op = input('Insira o número da tarefa para marca-lá como conclúida')
+    if op.isnumeric and op in tasks:
+        pass
+
+
+def alterar_tarefa():
+    pass
 
 
 
 '''lista_nova = [('lavar louça', 'urgente'), ('limpar casa', 'pouco urgente'), ('pagar o mercado', 'urgente'), ('passear com a safira', 'sem pressa'), ('limpar o quarto', 'urgente')]
 
 
-filtrar_urgentes(lista_nova)
-
+listar_tarefa(lista_nova)
 '''
+
