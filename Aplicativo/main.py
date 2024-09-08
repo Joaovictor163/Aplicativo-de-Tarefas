@@ -20,13 +20,28 @@ def filtrar_urgentes(dicionario: dict, /): # certo
     for tasks in tarefas_urgentes:
         print(tasks)
 
-
 def marcar_concluida(dicionario: dict, lista_concluidas: list, /):
     concluir = input('Digite o nome da tarefa que deseja marcar como concluida: ')
     task_name = dicionario.pop(concluir, {})
     if task_name:
         lista_concluidas.append(concluir)
     return lista_concluidas
+
+def listar_tarefas_concluidas(lista_concluidas: list, /):
+    for tasks in lista_concluidas:
+        print(tasks)
+
+# proximo passo criar uma função principal que gerencia tudo
+
+def main():
+    pass
+
+
+
+
+
+'''
+alguns testes
 
 lista_das_concluidas = list()
 
@@ -41,4 +56,4 @@ filtrar_urgentes(res)
 
 final = marcar_concluida(res, lista_das_concluidas)
 
-print(final)
+listar_tarefas_concluidas(final)'''
