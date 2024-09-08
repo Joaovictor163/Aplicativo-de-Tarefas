@@ -1,7 +1,7 @@
 # registrar tarefas a fazer, listar as tarefas, ordernar por status (urgente, sem pressa, etc), remover as tarefas feitas
 
 
-def criar_tarefas(dicionario: dict, tarefa: str, status: str, /):
+def adicionar_tarefas(dicionario: dict, tarefa: str, status: str, /):
     lista_tarefas = dict() # dps passar como parametros para essa função 
     if tarefa in lista_tarefas:
         print(' a tarefa ja esta listada !')
