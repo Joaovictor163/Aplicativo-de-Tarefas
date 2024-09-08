@@ -5,13 +5,15 @@ def adicionar_tarefas(dicionario: dict, tarefa: str, status: str, /):
     lista_tarefas = dict() # dps passar como parametros para essa função 
     if tarefa in lista_tarefas:
         print(' a tarefa ja esta listada !')
+        continue
     else:
       lista_tarefas[tarefa] = status
     return lista_tarefas
 
-def listar_tarefa(lista: list, /):
-    for indice, items in enumerate(lista):
-        texto += f'{indice}: {items[0]} ({items[1]})\n'
+def listar_tarefa(lista: dict, /):
+    for key, valor in lista.items():
+        for i in len(lista):
+        　　　　texto += f'{i}: {key} ({valor})\n'
     print(texto)
     return texto
 
