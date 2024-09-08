@@ -2,8 +2,9 @@
 
 
 def criar_tarefas(tarefa: str, status: str, /):
-    lista_tarefas = list()
-    lista_tarefas.append((tarefa, status))
+    #lista_tarefas = list() #FIXE Mudar a lista para ser criada no escopo da função principal que vai rodar o código 
+    lista_tarefas = dict()
+    lista_tarefas[tarefa] = status
     return lista_tarefas
 
 def listar_tarefa(lista: list, /):
