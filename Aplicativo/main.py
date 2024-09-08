@@ -1,34 +1,34 @@
+
 # registrar tarefas a fazer, listar as tarefas, ordernar por status (urgente, sem pressa, etc), remover as tarefas feitas
 
 
-def adicionar_tarefas(dicionario: dict, tarefa: str, status: str, /):
-
+def adicionar_tarefas(dicionario: dict, tarefa: str, status: str, /): # certo
     if tarefa in dicionario:
         print(' a tarefa ja esta listada !')
     else:
         dicionario[tarefa] = status
     return dicionario
 
-def listar_tarefa(lista: dict, /):
+def listar_tarefa(lista: dict, /): # certo
     texto = ''
     for key, valor in lista.items():
          texto += f'{key}: ({valor})\n'
     print(texto)
 
-def filtrar_urgentes(dicionario: dict, /):
+def filtrar_urgentes(dicionario: dict, /): # certo
     tarefas_urgentes = [key for key in dicionario if dicionario[key] == 'urgente']
     for tasks in tarefas_urgentes:
         print(tasks)
 
 
-def marcar_concluida(txt: str, /):
-    print('Essas são suas tarefas pendentes atualmente: ')
-    txt = txt.split('\n')
-    for tasks in txt:
-        print(tasks)
-    op = input('Insira o número da tarefa para marca-lá como conclúida')
-    if op.isnumeric and op in tasks:
-        pass
+def marcar_concluida(dicionario: dict, lista_concluidas: list, /):
+    concluir = input('Digite o nome da tarefa que deseja marcar como concluida: ')
+    task_name = dicionario.pop(concluir, {})
+    if task_name:
+        lista_concluidas.append(concluir)
+    return lista_concluidas
+
+lista_das_concluidas = list()
 
 teste = {'lavar o carro': 'não urgente', 'sair para comprar arroz': 'pouco urgente', 'trocar a geladeira de lugar': 'urgente', 'fazer a janta': 'urgente'}
 
@@ -39,3 +39,6 @@ listar_tarefa(res)
 print('-' * 30)
 filtrar_urgentes(res)
 
+final = marcar_concluida(res, lista_das_concluidas)
+
+print(final)
