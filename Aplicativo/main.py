@@ -2,23 +2,21 @@
 
 
 def adicionar_tarefas(dicionario: dict, tarefa: str, status: str, /):
-    lista_tarefas = dict() # dps passar como parametros para essa função 
-    if tarefa in lista_tarefas:
+
+    if tarefa in dicionario:
         print(' a tarefa ja esta listada !')
-        continue
     else:
-      lista_tarefas[tarefa] = status
-    return lista_tarefas
+        dicionario[tarefa] = status
+    return dicionario
 
 def listar_tarefa(lista: dict, /):
+    texto = ''
     for key, valor in lista.items():
-        for i in len(lista):
-        　　　　texto += f'{i}: {key} ({valor})\n'
+         texto += f'{key}: ({valor})\n'
     print(texto)
-    return texto
 
-def filtrar_urgentes(lista: list, /):
-    tarefas_urgentes = [item[0] for item in lista if item[1] == 'urgente']
+def filtrar_urgentes(dicionario: dict, /):
+    tarefas_urgentes = [key for key in dicionario if dicionario[key] == 'urgente']
     for tasks in tarefas_urgentes:
         print(tasks)
 
@@ -32,15 +30,12 @@ def marcar_concluida(txt: str, /):
     if op.isnumeric and op in tasks:
         pass
 
+teste = {'lavar o carro': 'não urgente', 'sair para comprar arroz': 'pouco urgente', 'trocar a geladeira de lugar': 'urgente', 'fazer a janta': 'urgente'}
 
-def alterar_tarefa():
-    pass
+res = adicionar_tarefas(teste, 'fazer lição de casa', 'urgente')
 
+listar_tarefa(res)
 
-
-'''lista_nova = [('lavar louça', 'urgente'), ('limpar casa', 'pouco urgente'), ('pagar o mercado', 'urgente'), ('passear com a safira', 'sem pressa'), ('limpar o quarto', 'urgente')]
-
-
-listar_tarefa(lista_nova)
-'''
+print('-' * 30)
+filtrar_urgentes(res)
 
